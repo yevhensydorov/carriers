@@ -1,0 +1,13 @@
+<% include partials/header %>
+<h1>Carriers List</h1>
+
+<% carriers.forEach(function(carrier){ %>
+	<% if(carrier.leavingDate === "2017-11-15") { %>
+		<img src="<%= carrier.image %>" alt="" />
+		<h4><%= carrier.name %></h4>
+	<% } %>
+	
+
+<% }); %>
+
+<% include partials/footer %>
