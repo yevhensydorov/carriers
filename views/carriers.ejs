@@ -1,13 +1,42 @@
 <% include partials/header %>
-<h1>Carriers List</h1>
 
-<% carriers.forEach(function(carrier){ %>
-	<% if(carrier.leavingDate === "2017-11-15") { %>
-		<img src="<%= carrier.image %>" alt="" />
-		<h4><%= carrier.name %></h4>
-	<% } %>
-	
+<div class="container">
+	<header class="jumbotron">
+		<div class="container">
+			<h1>Welcome to our Carriers List!</h1>
+			<p>View our hand-picked carriers</p>
+			<p>
+				<a class="btn btn-primary btn-lg" href="/carriers/new">Add new carrier</a>
+			</p>
+		</div>
+	</header>
 
-<% }); %>
+	<div class="row">
+		<div class="col-lg-12">
+			<h3>Our most popular Carriers</h3>
+		</div>
+	</div>
+
+	<div class="row text-center" style="display: flex; flex-wrap: wrap;">
+		<% carriers.forEach(function(carrier){ %>
+			<div class="col-md-3 col-sm-6">
+				<div class="thumbnail">
+					<div class="caption">
+						<h4><%= carrier.name %></h4>
+					</div>
+					<img src="<%= carrier.image %>" alt="" />
+					<p>
+						<span>Price is: </span><%= carrier.price %>
+					</p>
+					<p>
+						<span>Leaving from London: </span><%= carrier.leavingDate %>
+					</p>
+				</div>
+			</div>
+		<% }); %>		
+	</div>
+</div>
+
+
 
 <% include partials/footer %>
